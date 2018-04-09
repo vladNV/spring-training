@@ -1,0 +1,85 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/tool"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/tool http://www.springframework.org/schema/tool/spring-tool.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="engine1" name="engine-honda" class="genus.panthera.car.Engine">
+        <property name="complication" value="Honda engine"/>
+    </bean>
+    <bean id="engine2" name="engine-suzuki" class="genus.panthera.car.Engine">
+        <property name="complication" value="Suzuki engine"/>
+    </bean>
+
+    <bean id="wheel1" class="genus.panthera.car.Wheel">
+        <property name="model" value="Honda"/>
+        <property name="diameter" value="5"/>
+    </bean>
+
+    <bean id="wheel2" class="genus.panthera.car.Wheel">
+        <property name="model" value="Honda"/>
+        <property name="diameter" value="7"/>
+    </bean>
+
+    <bean id="wheel3" class="genus.panthera.car.Wheel">
+        <property name="model" value="Suzuki"/>
+        <property name="diameter" value="4"/>
+    </bean>
+
+    <bean id="wheel4" class="genus.panthera.car.Wheel">
+        <property name="model" value="Suzuki"/>
+        <property name="diameter" value="6"/>
+    </bean>
+
+    <bean id="driver1" name="vlad" class="genus.panthera.car.Driver">
+        <property name="name" value="Vlad"/>
+    </bean>
+
+    <bean id="driver2" name="denis" class="genus.panthera.car.Driver">
+        <property name="name" value="Denis"/>
+    </bean>
+
+    <bean id="corpus1" class="genus.panthera.car.Corpus">
+        <property name="color" value="black"/>
+    </bean>
+
+    <bean id="car1" name="honda" class="genus.panthera.car.Car">
+        <property name="fuel" value="120"/>
+        <property name="backWheels">
+            <util:list value-type="genus.panthera.car.Wheel">
+                <ref bean="wheel1"/>
+                <ref bean="wheel1"/>
+            </util:list>
+        </property>
+        <property name="frontWheels">
+            <util:list value-type="genus.panthera.car.Wheel">
+                <ref bean="wheel2"/>
+                <ref bean="wheel2"/>
+            </util:list>
+        </property>
+        <property name="corpus" ref="corpus1"/>
+        <property name="driver" ref="driver1"/>
+        <property name="engine" ref="engine1"/>
+    </bean>
+
+    <bean id="car2" name="suzuki" class="genus.panthera.car.Car">
+        <property name="fuel" value="140"/>
+        <property name="backWheels">
+            <util:list value-type="genus.panthera.car.Wheel">
+                <ref bean="wheel3"/>
+                <ref bean="wheel3"/>
+            </util:list>
+        </property>
+        <property name="frontWheels">
+            <util:list value-type="genus.panthera.car.Wheel">
+                <ref bean="wheel4"/>
+                <ref bean="wheel4"/>
+            </util:list>
+        </property>
+        <property name="corpus" ref="corpus1"/>
+        <property name="driver" ref="driver2"/>
+        <property name="engine" ref="engine2"/>
+    </bean>
+
+</beans>
